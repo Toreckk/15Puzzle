@@ -23,7 +23,7 @@
         <!--Menu Buttons -->
         <Button x:Name="Resetbtn" Margin="10" Click="Resetbtn_Click">Reset</Button>
         <Button x:Name="Randomizebtn" Grid.Column="1" Margin="10" Click="Randomizebtn_Click">Randomize</Button>
-        <Button x:Name="solvebtn" Grid.Column="2" Margin="10" Click="solvebtn_Click">Solve</Button>
+        <Button x:Name="Solvebtn" Grid.Column="2" Margin="10" Click="Solvebtn_Click">Solve</Button>
         <Button x:Name="Helpbtn" Grid.Column="3" Margin="10" Click="Helpbtn_Click">Help!</Button>
         <!--Gameplay Buttons -->
         <Button x:Name="btn1" Grid.Row="1" FontSize="36" Click="btn1_Click" Margin="5" Content="1"></Button>
@@ -42,6 +42,6 @@
         <Button x:Name="btn14" Grid.Row="4" Grid.Column="1" FontSize="36" Click="btn14_Click" Margin="5" Content="14"></Button>
         <Button x:Name="btn15" Grid.Row="4" Grid.Column="2" FontSize="36" Click="btn15_Click" Margin="5" Content="15"></Button>
         <Button x:Name="btn16" Grid.Row="4" Grid.Column="3" FontSize="36" Click="btn16_Click" Margin="5" Content="0"></Button>
-        <Separator Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="10" Margin="10,40,0,0" VerticalAlignment="Top" Width="372" />
+        <Separator Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="10" Margin="10,40,0,0" VerticalAlignment="Top" Width="364" />
     </Grid>
 </Window>

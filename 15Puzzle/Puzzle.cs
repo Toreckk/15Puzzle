@@ -52,5 +52,9 @@ namespace _15Puzzle
                 }
             }
         }
+
+        public void Solveability()//Checks if board is solveable
+        {
+        }
     }
 }

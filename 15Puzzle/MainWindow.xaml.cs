@@ -21,6 +21,7 @@ namespace _15Puzzle
     /// </summary>
     public partial class MainWindow : Window
     {
+        private int size = 4;
         private int[,] Game = new int[4, 4];
         private Button[] buttons;
         private Puzzle myPuzzle;
@@ -30,12 +31,12 @@ namespace _15Puzzle
             InitializeComponent();
             buttons = new Button[] { btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11, btn12, btn13, btn14, btn15, btn16 };
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < size; i++)
             {
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < size; j++)
                 {
                     int n;
-                    Int32.TryParse(buttons[(i * 4 + j)].Content.ToString(), out n); ;
+                    Int32.TryParse(buttons[(i * size + j)].Content.ToString(), out n); ;
                     Game[i, j] = n;
                 }
             }
@@ -43,9 +44,9 @@ namespace _15Puzzle
             myPuzzle = new Puzzle(Game);
             myPuzzle.NewGame();
             Game = myPuzzle.ReturnBoard();
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < size; i++)
             {
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < size; j++)
                 {
                     Debug.Write(Game[i, j] + " ");
                 }
@@ -58,9 +59,9 @@ namespace _15Puzzle
         public void DebugDraw()
         {
             Debug.Write("\n");
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < size; i++)
             {
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < size; j++)
                 {
                     Debug.Write(Game[i, j] + " ");
                 }
@@ -70,19 +71,14 @@ namespace _15Puzzle
 
         public void RefreshButtons()
         {
-            int n = 0;
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < size; i++)
             {
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < size; j++)
                 {
-                    //if (buttons[(i * 4 + j)].Content.ToString() == n.ToString())
-                    //{
-                    //    buttons[(i * 4 + j)].Visibility = Visibility.Hidden;
-                    //}
-                    //else
-                    //{
-                    buttons[(i * 4 + j)].Content = Game[i, j].ToString();
-                    // }
+                    var button = buttons[i * 4 + j];
+                    button.Content = Game[i, j];
+                    button.Visibility = Game[i, j] == 0 ?
+                        Visibility.Hidden : Visibility.Visible;
                 }
             }
         }
@@ -101,7 +97,7 @@ namespace _15Puzzle
             RefreshButtons();
         }
 
-        private void solvebtn_Click(object sender, RoutedEventArgs e)
+        private void Solvebtn_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("In construction");
         }
