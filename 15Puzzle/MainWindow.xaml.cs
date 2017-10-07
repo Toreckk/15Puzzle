@@ -86,7 +86,14 @@ namespace _15Puzzle
         //Menu buttons
         private void Resetbtn_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("In construction");
+            if (myPuzzle.Solvability())
+            {
+                MessageBox.Show($"Puzzle is Solvable");
+            }
+            else
+            {
+                MessageBox.Show($"Puzzle is NOT Solvable");
+            }
         }
 
         private void Randomizebtn_Click(object sender, RoutedEventArgs e)
