@@ -112,73 +112,105 @@ namespace _15Puzzle
         private void Helpbtn_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("The 15 puzzle\n\nTo play you first scramble the tiles and then try to put them back in order. To move a tile you simply click on it." +
-                " The only tiles you can move are those adjacent to the hole.\n\nReset: Resets the puzzle to the initial position.\n" +
+                " The only tiles you can move are those adjacent to the blank tile.\n\nReset: Resets the puzzle to the initial position.\n" +
                 "Randomize: This button randomly mixes the puzzle up.\nSolve: Automatically solves the puzzle. Huzzah!", "Help");
         }
 
         //Game Buttons
         private void btn1_Click(object sender, RoutedEventArgs e)
         {
+            myPuzzle.MoveTile((int)buttons[0].Content);
+            RefreshButtons();
         }
 
         private void btn2_Click(object sender, RoutedEventArgs e)
         {
+            myPuzzle.MoveTile((int)buttons[1].Content);
+            RefreshButtons();
         }
 
         private void btn3_Click(object sender, RoutedEventArgs e)
         {
+            myPuzzle.MoveTile((int)buttons[2].Content);
+            RefreshButtons();
         }
 
         private void btn4_Click(object sender, RoutedEventArgs e)
         {
+            myPuzzle.MoveTile((int)buttons[3].Content);
+            RefreshButtons();
         }
 
         private void btn5_Click(object sender, RoutedEventArgs e)
         {
+            myPuzzle.MoveTile((int)buttons[4].Content);
+            RefreshButtons();
         }
 
         private void btn6_Click(object sender, RoutedEventArgs e)
         {
+            myPuzzle.MoveTile((int)buttons[5].Content);
+            RefreshButtons();
         }
 
         private void btn7_Click(object sender, RoutedEventArgs e)
         {
+            myPuzzle.MoveTile((int)buttons[6].Content);
+            RefreshButtons();
         }
 
         private void btn8_Click(object sender, RoutedEventArgs e)
         {
+            myPuzzle.MoveTile((int)buttons[7].Content);
+            RefreshButtons();
         }
 
         private void btn9_Click(object sender, RoutedEventArgs e)
         {
+            myPuzzle.MoveTile((int)buttons[8].Content);
+            RefreshButtons();
         }
 
         private void btn10_Click(object sender, RoutedEventArgs e)
         {
+            myPuzzle.MoveTile((int)buttons[9].Content);
+            RefreshButtons();
         }
 
         private void btn11_Click(object sender, RoutedEventArgs e)
         {
+            myPuzzle.MoveTile((int)buttons[10].Content);
+            RefreshButtons();
         }
 
         private void btn12_Click(object sender, RoutedEventArgs e)
         {
+            myPuzzle.MoveTile((int)buttons[11].Content);
+            RefreshButtons();
         }
 
         private void btn13_Click(object sender, RoutedEventArgs e)
         {
+            myPuzzle.MoveTile((int)buttons[12].Content);
+            RefreshButtons();
         }
 
         private void btn14_Click(object sender, RoutedEventArgs e)
         {
+            myPuzzle.MoveTile((int)buttons[13].Content);
+            RefreshButtons();
         }
 
         private void btn15_Click(object sender, RoutedEventArgs e)
         {
+            myPuzzle.MoveTile((int)buttons[14].Content);
+            RefreshButtons();
         }
 
         private void btn16_Click(object sender, RoutedEventArgs e)
         {
+            myPuzzle.MoveTile((int)buttons[15].Content);
+            RefreshButtons();
         }
     }
 }

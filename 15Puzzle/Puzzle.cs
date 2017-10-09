@@ -106,9 +106,54 @@ namespace _15Puzzle
             return Solvable;
         }
 
-        public int findzero()
+        public void MoveTile(int tile)
         {
-            return 0;
+            int[] zeroPos = findnumber(0);
+            int[] TilePos = findnumber(tile);
+            if (zeroPos[0] > -1 && zeroPos[1] > -1 && TilePos[0] > -1 && TilePos[1] > -1)//Tile not found, so we don't move any tiles
+            {
+                //North
+                if (((zeroPos[0] - 1) == TilePos[0] && (zeroPos[0] - 1) >= 0) && ((zeroPos[1] == TilePos[1])))
+                {
+                    Board[zeroPos[0], zeroPos[1]] = Board[TilePos[0], TilePos[1]];
+                    Board[TilePos[0], TilePos[1]] = 0;
+                }
+                //West
+                if (((zeroPos[1] - 1) == TilePos[1] && (zeroPos[1] - 1) >= 0) && ((zeroPos[0] == TilePos[0])))
+                {
+                    Board[zeroPos[0], zeroPos[1]] = Board[TilePos[0], TilePos[1]];
+                    Board[TilePos[0], TilePos[1]] = 0;
+                }
+                //South
+                if (((zeroPos[1] + 1) == TilePos[1] && (zeroPos[1] + 1) < size) && ((zeroPos[0] == TilePos[0])))
+                {
+                    Board[zeroPos[0], zeroPos[1]] = Board[TilePos[0], TilePos[1]];
+                    Board[TilePos[0], TilePos[1]] = 0;
+                }
+                //East
+                if (((zeroPos[0] + 1) == TilePos[0] && (zeroPos[0] + 1) > 0) && ((zeroPos[1] == TilePos[1])))
+                {
+                    Board[zeroPos[0], zeroPos[1]] = Board[TilePos[0], TilePos[1]];
+                    Board[TilePos[0], TilePos[1]] = 0;
+                }
+            }
+        }
+
+        public int[] findnumber(int num)
+        {
+            int[] pos = { -1, -1 };
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    if (Board[i, j] == num)
+                    {
+                        pos[0] = i;
+                        pos[1] = j;
+                    }
+                }
+            }
+            return pos;
         }
 
         public int findZeroRow()
