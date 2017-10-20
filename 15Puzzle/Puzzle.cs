@@ -170,5 +170,17 @@ namespace _15Puzzle
             }
             return -1;
         }
+
+        public bool GameWon()
+        {
+            bool won = true;
+            int[] TwoDtoArray = Board.Cast<int>().ToArray();
+            for (int i = 0; i < TwoDtoArray.Length - 2; i++)
+            {
+                if (TwoDtoArray[i] > TwoDtoArray[i + 1])
+                    won = false;
+            }
+            return won;
+        }
     }
 }

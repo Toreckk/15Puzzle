@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace _15Puzzle
 {
@@ -25,11 +26,18 @@ namespace _15Puzzle
         private int[,] Game = new int[4, 4];
         private Button[] buttons;
         private Puzzle myPuzzle;
+        private DispatcherTimer Timer;
+        public DateTime InitialTime = DateTime.Now;
 
         public MainWindow()
         {
             InitializeComponent();
             buttons = new Button[] { btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11, btn12, btn13, btn14, btn15, btn16 };
+
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timer_Tick;
+            timer.Start();
 
             for (int i = 0; i < size; i++)
             {
@@ -53,6 +61,22 @@ namespace _15Puzzle
                 Debug.Write("\n");
             }
             RefreshButtons();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            TimeSpan EllapsedTime = DateTime.Now.Subtract(InitialTime);
+            //Timerbtn.Content = $"{EllapsedTime.Hours}:{EllapsedTime.Minutes}:{EllapsedTime.Seconds}";
+            Timerbtn.Content = EllapsedTime.Duration().ToString("hh':'mm':'ss");
+
+            if (myPuzzle.GameWon())
+            {
+                MessageBox.Show(
+                    $"Congrats! You Completed the game in:\n{EllapsedTime.Duration().ToString("hh':'mm':'ss")}\nReseting the game...");
+
+                RandomizeBoard();
+                InitialTime = DateTime.Now;
+            }
         }
 
         //Test
@@ -83,6 +107,14 @@ namespace _15Puzzle
             }
         }
 
+        public void RandomizeBoard()
+        {
+            myPuzzle.RandomizeBoard();
+            Game = myPuzzle.ReturnBoard();
+            DebugDraw();
+            RefreshButtons();
+        }
+
         //Menu buttons
         private void Resetbtn_Click(object sender, RoutedEventArgs e)
         {
@@ -98,10 +130,7 @@ namespace _15Puzzle
 
         private void Randomizebtn_Click(object sender, RoutedEventArgs e)
         {
-            myPuzzle.RandomizeBoard();
-            Game = myPuzzle.ReturnBoard();
-            DebugDraw();
-            RefreshButtons();
+            RandomizeBoard();
         }
 
         private void Solvebtn_Click(object sender, RoutedEventArgs e)

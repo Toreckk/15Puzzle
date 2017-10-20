@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_15Puzzle"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="450" Width="420" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid x:Name="myGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
@@ -21,7 +21,7 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <!--Menu Buttons -->
-        <Button x:Name="Resetbtn" Margin="10" Click="Resetbtn_Click">Reset</Button>
+        <Button x:Name="Timerbtn" Margin="10" />
         <Button x:Name="Randomizebtn" Grid.Column="1" Margin="10" Click="Randomizebtn_Click">Randomize</Button>
         <Button x:Name="Solvebtn" Grid.Column="2" Margin="10" Click="Solvebtn_Click">Solve</Button>
         <Button x:Name="Helpbtn" Grid.Column="3" Margin="10" Click="Helpbtn_Click">Help!</Button>
